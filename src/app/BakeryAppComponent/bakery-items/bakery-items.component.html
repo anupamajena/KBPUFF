@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button (click)="showBakeryItem()" type="button" class="btn btn-link"> Add Bakery items</button>
+      <button (click)="showBakeryItemList()" type="button" class="btn btn-link">show Bakery Item List</button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="canBakeryItemContentShow">
+    <div class="col-md-12">
+      <form>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">ItemName:</label>
+          <div class="col-sm-10">
+            <input type="text" name="item" [(ngModel)]="itemName" class="form-control" id="staticEmail">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">ItemPrice:</label>
+          <div class="col-sm-10">
+            <input type="text" name="itemPrice" [(ngModel)]="ItemPrice" class="form-control" id="inputPassword">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Item Description:</label>
+          <div class="col-sm-10">
+            <input type="text" name="itemDescription" [(ngModel)]="ItemDescription" class="form-control"
+              id="inputPassword">
+          </div>
+        </div>
+        <button (click)="onAdditionItem()" type="button" class="btn btn-info">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="canBakeryItemContentListShow">
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">SL no</th>
+            <th scope="col">itemName</th>
+            <th scope="col">ItemPrice</th>
+            <th scope="col">ItemDescription</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of bakeryItemList">
+            <th scope="row">1</th>
+            <td>{{item.itemName}}</td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
